@@ -38,6 +38,8 @@ You can send your log to Log Monitor with Restful POST request. Data send in Jso
 This repository comes with php example. Just include file "WebSocketDebugger.php" and use WebSocketDebugger::push() static method to push to socket server. Example:
 
 ```php
+...
+
 include('WebSocketDebugger.php');
 
 $data = array(
