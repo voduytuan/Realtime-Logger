@@ -19,5 +19,16 @@ For the simplicity, database is not used here in this system. All data/packet se
 There is no security layer here. Every Log Monitor will be assigned an User ID (default: 1), you can change in UI of Log Monitor. If Log Pusher do not specify user id in POST data, all connected Log monitors will be received this Log.
 
 ## Pushing with Restful ##
-You can send your log to Log Monitor with Restful POST request. The only data are sent in POST Body is "data=encodedjsondata". 
+You can send your log to Log Monitor with Restful POST request. Data send in Json format and in Request Body. Request json format:
+`{
+  _uid: Integer,
+  _emit: "log_receive",
+  _data: {
+    type: String (debug, error, warning, info...),
+    detail: {
+      time: String,
+      text: String (Your log text)
+    }
+  }
+}`
 
