@@ -20,7 +20,8 @@ There is no security layer here. Every Log Monitor will be assigned an User ID (
 
 ## Pushing with Restful ##
 You can send your log to Log Monitor with Restful POST request. Data send in Json format and in Request Body. Request json format:
-`{
+```javascript
+{
   _uid: Integer,
   _emit: "log_receive",
   _data: {
@@ -30,5 +31,6 @@ You can send your log to Log Monitor with Restful POST request. Data send in Jso
       text: String (Your log text)
     }
   }
-}`
+}
+```
 
