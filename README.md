@@ -1,6 +1,8 @@
 # Realtime-Logger
 Simple and Lightweight real-time log debugger via Websocket with Nodejs, SocketIO and Restful API to feed log (PHP, Python...)
 
+![Log Monitor](http://bloghoctap.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-14-at-11.03.09-AM.png "Sample Log screen in real-time mode")
+
 ## Introduction ##
 Use this small library to create real-time log for your application. There are 3 parts in this system: 
 * Socket Server: Run WebSocker server on port 8080, will transmit log from your code (Log Pusher) to connected Log Monitors
