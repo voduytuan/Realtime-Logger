@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Real-time Monitoring</title>
+  <meta name="author" content="Vo Duy Tuan - tuanmaster2012@gmail.com">
+
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/jquery.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<div id="header">
+  <strong>REAL-TIME LOG MONITOR</strong> User ID: <input type="text" size="10" id="fuid" value="1" class="textbox" />
+  -
+  Filter by text:
+  <input type="text" id="fkeyword" size="50" value="" placeholder="Type your keyword to filter log entry" class="textbox" />
+  -
+  <label><input type="checkbox" id="fpause" value="1">Pause monitor</label>
+</div>
+<div id="container">
+    <div id="logs">
+        <ul></ul>
+    </div>
+</div>
+
+<script>
+    var socketrooturl = 'localhost:8080';   //No slash
+</script>
+  <script src="assets/main.js"></script>
+
+</body>
+</html>

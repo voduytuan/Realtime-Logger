@@ -1,0 +1,16 @@
+body{padding:0; margin: 0;background:#002b36; color:#268bd2; font-family: 'Andale Mono', 'Courier New', monospace; font-size: 13px;}
+#header{font-size:12px; height:30px; padding:10px; background:#000; border-bottom:1px solid #111; line-height: 30px; box-shadow: 0 0px 3px #222;}
+#header label{cursor: pointer;}
+#header strong{font-size:15px; border-right:1px solid #333; padding-right:10px;}
+.textbox{padding:4px; font-size:14px; color:#ff0; background:#444; border-radius: 4px; -webkit-border-radius: 4px; border-width:0;}
+.sep{height:30px; width: 2px; display: inline-block; background:#f00;}
+#logs{}
+#logs ul{margin: 0; padding: 0;}
+#logs ul li{padding:7px; border-top: 1px solid #053c4d;}
+#logs pre{color:#999;}
+.white{color:#fff;}
+.orange{color:orange;}
+.logtype-info{color:#268bd2;}
+.logtype-error{color:#f00;}
+.logtype-debug{color:yellow;}
+.logtype-warning{color:orange;}
