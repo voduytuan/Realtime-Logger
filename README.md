@@ -11,6 +11,11 @@ Use this small library to create real-time log for your application. There are 3
 
 ## Installation ##
 Required: Nodejs, port 8080 available on server (you can change in server.js sourcecode and client javascript)
+If not using localhost, you can change rooturl at socketserver/server.js, socketclient/index.html, pusher/WebSocketDebugger.php
+
+Start socket server with this: `> node socketserver/server.js`
+Open Log monitor in browser with URL: `http://localhost/realtimelogger/socketclient/index.html` (i assume that you put all directory in realtimelogger in www)
+Test push with `pusher/example.php`
 
 ## Persistent ##
 For the simplicity, database is not used here in this system. All data/packet send via web socket connections and there is no persistent storage in this system. If you refresh your Log Monitor page, all logs will be cleared.
