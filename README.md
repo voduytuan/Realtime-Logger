@@ -14,7 +14,9 @@ Required: Nodejs, port 8080 available on server (you can change in server.js sou
 If not using localhost, you can change rooturl at socketserver/server.js, socketclient/index.html, pusher/WebSocketDebugger.php
 
 Start socket server with this: `> node socketserver/server.js`
+
 Open Log monitor in browser with URL: `http://localhost/realtimelogger/socketclient/index.html` (i assume that you put all directory in realtimelogger in www)
+
 Test push with `pusher/example.php`
 
 ## Persistent ##
