@@ -58,3 +58,5 @@ $userId = 123;
 WebSocketDebugger::push($data, 'INFO', $userId);
 ```
 
+## Enhancement & Customization ##
+You can change the format of message in socketclient/assets and parsing more data as you want.
