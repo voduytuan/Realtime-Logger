@@ -29,33 +29,26 @@ There is no security layer here. Every Log Monitor will be assigned an User ID (
 You can send your log to Log Monitor with Restful POST request. Data send in Json format and in Request Body. Request json format:
 ```javascript
 {
-  _uid: Integer,
-  _emit: "log_receive",
-  _data: {
-    type: String (debug, error, warning, info...),
-    detail: {
-      time: String,
-      text: String (Your log text)
-    }
-  }
+  uid: Integer,
+  emit: "log_receive",
+  time: String,
+  type: String (debug, error, warning, info,...),
+  detail: String
 }
 ```
 
 ### PHP Usage ###
-This repository comes with php example. Just include file "WebSocketDebugger.php" and use WebSocketDebugger::push() static method to push to socket server. Example:
+This repository comes with php example. Just include file "WebSocketDebugger.php", create object instance and call Push() method to push debug information to socket server. Example:
 
 ```php
 ...
 
 include('WebSocketDebugger.php');
 
-$data = array(
-    'time' => date('H:i:s d/m/Y'),
-    'text' => "My Log text here"
-);
-
 $userId = 123;
-WebSocketDebugger::push($data, 'INFO', $userId);
+$socketUrl = 'http://localhost:8080/';
+$myDbg = new WebSocketDebugger($socketUrl);
+$myDbg->push('My Log here', 'info', $userId);
 ```
 
 ## Enhancement & Customization ##
