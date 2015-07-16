@@ -5,12 +5,12 @@
     $msg = '';
     if (isset($_POST['fsubmit'])) {
         //Prepare data for push
-        $data = array(
-            'time' => date('H:i:s d/m/Y'),
-            'text' => $_POST['ftext']
-        );
+        $data = $_POST['ftext'];
 
-        WebSocketDebugger::push($data, 'INFO', 1);
+        $socketUrl = 'http://localhost:8080/';
+        $dbg = new WebSocketDebugger($socketUrl);
+        $dbg->push($data, 'debug', 1);
+
         $msg = '<p style="border:1px solid #eee; padding:5px; color:#08f">Your log had been pushed.</p>';
     }
 

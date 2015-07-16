@@ -19,16 +19,16 @@ var app = http.createServer(function(req, res) {
 			var message = JSON.parse(postData);
 
 			//console.log(message);
-            var uidreceiver = message._uid;
+            var uidreceiver = message.uid;
             uidreceiver = parseInt(uidreceiver);
 
             //if there is no specified uid receiver, Emit to ALL
             if (uidreceiver == 0) {
                 for (var key in users) {
-                    users[key].sock.emit(message._emit, message._data)
+                    users[key].sock.emit(message.emit, message)
                 }
             } else if(typeof(users[uidreceiver]) !== "undefined") {
-                users[uidreceiver].sock.emit(message._emit, message._data);
+                users[uidreceiver].sock.emit(message.emit, message);
             }
 		}
     });

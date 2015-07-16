@@ -33,7 +33,7 @@ function logSocketReceive(data)
         //filter by keyword
         var keyword = $('#fkeyword').val();
         if (keyword != '') {
-            if (data.detail.text.indexOf(keyword) == -1) {
+            if (data.detail.indexOf(keyword) == -1) {
                 show = false;
             }
         }
@@ -49,9 +49,9 @@ function logSocketReceive(data)
 
 function logParsing(data)
 {
-    return '<li><span class="white">'+data.detail.time+'</span> \
+    return '<li><span class="white">'+data.time+'</span> \
         <span class="orange logtype-'+data.type.toLowerCase()+'">'+data.type+'</span> \
-         <pre>' + data.detail.text + '</pre></li>';
+         <pre>' + data.detail + '</pre></li>';
 }
 
 function nl2br (str, is_xhtml) {

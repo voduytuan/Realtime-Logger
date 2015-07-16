@@ -1,27 +1,36 @@
 <?php
 
-/**
- * Utility Class de request (cURL) toi websocket server de trigger 1 action cho nguoi nao do trong cac socket connect
- */
 class WebSocketDebugger
 {
-    const WEB_SOCKET_URL = 'http://localhost:8080/';
+    private $socketUrl = '';
+
+    public function __construct($socketUrl = 'http://localhost:8080/')
+    {
+        $this->socketUrl = $socketUrl;
+    }
 
     /**
      * Push socket message to socket server
-     * @param $message jsondata
+     * @param $message
+     * @param $type
+     * @param $userid
+     * @param $emit
+     *
+     * @return boolean
      */
-    public static function push($message, $type = "debug", $userid = 0, $emit = 'log_receive')
+    public function push($message, $type = "debug", $userid = 0, $emit = 'log_receive')
     {
         //compact message for sending more information
-        $sendmessage['_uid'] = $userid;
-        $sendmessage['_emit'] = $emit;
-        $sendmessage['_data'] = array('type' => strtoupper($type), 'detail' => $message);
+        $sendmessage['uid'] = $userid;
+        $sendmessage['emit'] = $emit;
+        $sendmessage['time'] = date('H:i:s d/m/Y');
+        $sendmessage['type'] = $type;
+        $sendmessage['detail'] = $message;
 
-        $paramString = json_encode(self::utf8ize($sendmessage));
+        $paramString = json_encode($this->utf8ize($sendmessage));
 
 
-        $parts = parse_url(self::WEB_SOCKET_URL);
+        $parts = parse_url($this->socketUrl);
 
         if (PROTOCOL == 'https') {
             $fp = fsockopen(
@@ -55,11 +64,11 @@ class WebSocketDebugger
         }
     }
 
-    public static function utf8ize($d)
+    public function utf8ize($d)
     {
         if (is_array($d)) {
             foreach ($d as $k => $v) {
-                $d[$k] = self::utf8ize($v);
+                $d[$k] = $this->utf8ize($v);
             }
         } else if (is_string ($d)) {
             return utf8_encode($d);
@@ -67,5 +76,3 @@ class WebSocketDebugger
         return $d;
     }
 }
-
-
