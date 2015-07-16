@@ -48,7 +48,7 @@ include('WebSocketDebugger.php');
 $userId = 123;
 $socketUrl = 'http://localhost:8080/';
 $myDbg = new WebSocketDebugger($socketUrl);
-$myDbg->push('My Log here', 'info', $userId);
+$myDbg->push('My Log here', $userId, 'info');
 ```
 
 ## Enhancement & Customization ##
