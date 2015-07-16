@@ -9,7 +9,7 @@
 
         $socketUrl = 'http://localhost:8080/';
         $dbg = new WebSocketDebugger($socketUrl);
-        $dbg->push($data, 'debug', 1);
+        $dbg->push($data, 1, 'debug');
 
         $msg = '<p style="border:1px solid #eee; padding:5px; color:#08f">Your log had been pushed.</p>';
     }

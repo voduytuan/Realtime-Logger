@@ -18,7 +18,7 @@ class WebSocketDebugger
      *
      * @return boolean
      */
-    public function push($message, $type = "debug", $userid = 0, $emit = 'log_receive')
+    public function push($message, $userid = 0, $type = "debug", $emit = 'log_receive')
     {
         //compact message for sending more information
         $sendmessage['uid'] = $userid;
